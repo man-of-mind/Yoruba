@@ -16,8 +16,8 @@ public class PhrasesActivity extends AppCompatActivity {
 
         ArrayList<Phrases> phrases = new ArrayList<Phrases>();
 
-        phrases.add(new Phrases("Mother", "okan"));
-        phrases.add(new Phrases("Father", "eji"));
+        phrases.add(new Phrases("Good morning", "ekaro"));
+        phrases.add(new Phrases("How are you?", "bawo nii"));
         phrases.add(new Phrases("Sister", "eta"));
         phrases.add(new Phrases("Brother", "erin"));
         phrases.add(new Phrases("Green", "arun"));

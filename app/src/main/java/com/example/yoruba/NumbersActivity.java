@@ -18,16 +18,16 @@ public class NumbersActivity extends AppCompatActivity {
 
         ArrayList<Word> numbers = new ArrayList<Word>();
 
-        numbers.add(new Word("one", "okan"));
-        numbers.add(new Word("two", "eji"));
-        numbers.add(new Word("three", "eta"));
-        numbers.add(new Word("four", "erin"));
-        numbers.add(new Word("five", "arun"));
-        numbers.add(new Word("six", "efa"));
-        numbers.add(new Word("seven", "eje"));
-        numbers.add(new Word("eight", "ejo"));
-        numbers.add(new Word("nine", "esan"));
-        numbers.add(new Word("ten", "ewa"));
+        numbers.add(new Word("one", "okan", R.drawable.number_one));
+        numbers.add(new Word("two", "meji", R.drawable.number_two));
+        numbers.add(new Word("three", "meta", R.drawable.number_three));
+        numbers.add(new Word("four", "merin", R.drawable.number_four));
+        numbers.add(new Word("five", "marun", R.drawable.number_five));
+        numbers.add(new Word("six", "mefa", R.drawable.number_six));
+        numbers.add(new Word("seven", "meje", R.drawable.number_seven));
+        numbers.add(new Word("eight", "mejo", R.drawable.number_eight));
+        numbers.add(new Word("nine", "mesan", R.drawable.number_nine));
+        numbers.add(new Word("ten", "mewa", R.drawable.number_ten));
 
 
         WordAdapter wordAdapter = new WordAdapter(this, 0, numbers);

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,15 +23,17 @@ public class ColorAdapter extends ArrayAdapter<Color> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listView = convertView;
         if(listView == null){
-            listView = LayoutInflater.from(getContext()).inflate(R.layout.color_item, parent, false);
+            listView = LayoutInflater.from(getContext()).inflate(R.layout.list_item, parent, false);
         }
 
         Color currentWord = getItem(position);
+        ImageView imageView = (ImageView) listView.findViewById(R.id.image);
+        imageView.setImageResource(currentWord.getImageResourceId());
 
-        TextView yorubaText = (TextView) listView.findViewById(R.id.yorubaColor);
+        TextView yorubaText = (TextView) listView.findViewById(R.id.yoruba);
         yorubaText.setText(currentWord.getYorubaTranslation());
 
-        TextView nameText = (TextView) listView.findViewById(R.id.englishColor);
+        TextView nameText = (TextView) listView.findViewById(R.id.english);
         nameText.setText(currentWord.getDefaultTranslation());
         return listView;
     }

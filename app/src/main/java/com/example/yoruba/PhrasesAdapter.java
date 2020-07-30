@@ -23,15 +23,15 @@ public class PhrasesAdapter extends ArrayAdapter<Phrases> {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
         View listView = convertView;
         if(listView == null){
-            listView = LayoutInflater.from(getContext()).inflate(R.layout.family_item, parent, false);
+            listView = LayoutInflater.from(getContext()).inflate(R.layout.phrase_item, parent, false);
         }
 
         Phrases currentWord = getItem(position);
 
-        TextView yorubaText = (TextView) listView.findViewById(R.id.yorubaFamily);
+        TextView yorubaText = (TextView) listView.findViewById(R.id.yorubaPhrases);
         yorubaText.setText(currentWord.getYorubaTranslation());
 
-        TextView nameText = (TextView) listView.findViewById(R.id.englishFamily);
+        TextView nameText = (TextView) listView.findViewById(R.id.englishPhrases);
         nameText.setText(currentWord.getDefaultTranslation());
         return listView;
     }
