@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/app_background">
 
     <TextView
         android:layout_width="match_parent"
@@ -16,7 +17,7 @@
         android:paddingStart="16dp"
         android:paddingEnd="16dp"
         android:paddingTop="25dp"
-        android:background="#fb8c00"
+        android:background="@color/number_color"
         android:textColor="@android:color/white"
         android:paddingBottom="25dp" />
 
@@ -24,7 +25,7 @@
         android:id="@+id/family"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#388e3c"
+        android:background="@color/family_color"
         android:paddingStart="16dp"
         android:paddingTop="25dp"
         android:paddingEnd="16dp"
@@ -37,7 +38,7 @@
         android:id="@+id/colors"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#7b1fa2"
+        android:background="@color/color_color"
         android:paddingStart="16dp"
         android:paddingTop="25dp"
         android:paddingEnd="16dp"
@@ -50,7 +51,7 @@
         android:id="@+id/phrases"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#039be5"
+        android:background="@color/phrases_color"
         android:paddingStart="16dp"
         android:paddingTop="25sp"
         android:paddingEnd="16dp"

@@ -6,17 +6,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class WordAdapter extends ArrayAdapter<Word> {
-    public WordAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Word> objects) {
+    private int mColorResources;
+    public WordAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Word> objects, int color) {
         super(context, 0, objects);
+        mColorResources = color;
     }
 
     @NonNull
@@ -30,13 +34,21 @@ public class WordAdapter extends ArrayAdapter<Word> {
 
         Word currentWord = getItem(position);
         ImageView imageView = (ImageView) listItemView.findViewById(R.id.image);
-        imageView.setImageResource(currentWord.getImageResourceId());
-
+        if (currentWord.hasImage()) {
+            imageView.setImageResource(currentWord.getImageResourceId());
+        }
+        else{
+            imageView.setVisibility(View.GONE);
+        }
         TextView yorubaText = (TextView) listItemView.findViewById(R.id.yoruba);
         yorubaText.setText(currentWord.getYorubaTranslation());
 
         TextView nameText = (TextView) listItemView.findViewById(R.id.english);
         nameText.setText(currentWord.getDefaultTranslation());
+
+        LinearLayout linearLayout = (LinearLayout) listItemView.findViewById(R.id.textLinear);
+        int colors = ContextCompat.getColor(getContext(), mColorResources);
+        linearLayout.setBackgroundColor(colors);
         return listItemView;
     }
 }

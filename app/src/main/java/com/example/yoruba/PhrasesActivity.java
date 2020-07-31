@@ -14,21 +14,20 @@ public class PhrasesActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phrases);
 
-        ArrayList<Phrases> phrases = new ArrayList<Phrases>();
+        ArrayList<Word> phrases = new ArrayList<Word>();
 
-        phrases.add(new Phrases("Good morning", "ekaro"));
-        phrases.add(new Phrases("How are you?", "bawo nii"));
-        phrases.add(new Phrases("Sister", "eta"));
-        phrases.add(new Phrases("Brother", "erin"));
-        phrases.add(new Phrases("Green", "arun"));
-        phrases.add(new Phrases("Red", "efa"));
-        phrases.add(new Phrases("seven", "eje"));
-        phrases.add(new Phrases("eight", "ejo"));
-        phrases.add(new Phrases("nine", "esan"));
-        phrases.add(new Phrases("ten", "ewa"));
+        phrases.add(new Word("Good morning", "Ekaaro"));
+        phrases.add(new Word("How are you?", "Bawo ni o se wa?"));
+        phrases.add(new Word("Where are you going?", "Nibo ni iwon lo?"));
+        phrases.add(new Word("What is your name?", "Ki 'ni oruko re?"));
+        phrases.add(new Word("My name is...", "Orukọ mi ni..."));
+        phrases.add(new Word("I am feeling good", "Ara mi ya"));
+        phrases.add(new Word("Are you coming?", "Se o n bọ?"));
+        phrases.add(new Word("Yes, I'm coming", "Bẹẹni, mo n bọ"));
 
 
-        PhrasesAdapter phrasesAdapter = new PhrasesAdapter(this, 0, phrases);
+
+        WordAdapter phrasesAdapter = new WordAdapter(this, 0, phrases, R.color.phrases_color);
         ListView listView = (ListView) findViewById(R.id.phrases);
         listView.setAdapter(phrasesAdapter);
     }

@@ -14,21 +14,21 @@ public class FamilyActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family);
 
-        ArrayList<Family> families = new ArrayList<Family>();
+        ArrayList<Word> families = new ArrayList<Word>();
 
-        families.add(new Family("Mother", "iya", R.drawable.family_mother));
-        families.add(new Family("Father", "baba", R.drawable.family_father));
-        families.add(new Family("Older Brother", "egbon okunrin", R.drawable.family_older_brother));
-        families.add(new Family("Older Sister", "egbon obinrin", R.drawable.family_older_sister));
-        families.add(new Family("Daughter", "omo obinrin", R.drawable.family_daughter));
-        families.add(new Family("Son", "omo okunrin", R.drawable.family_son));
-        families.add(new Family("Grandfather", "eje", R.drawable.family_grandfather));
-        families.add(new Family("Grandmother", "ejo", R.drawable.family_grandmother));
-        families.add(new Family("Younger Brother", "aburo okunrin", R.drawable.family_younger_brother));
-        families.add(new Family("Younger Sister", "aburo obinrin", R.drawable.family_younger_sister));
+        families.add(new Word("Mother", "Iya", R.drawable.family_mother));
+        families.add(new Word("Father", "Baba", R.drawable.family_father));
+        families.add(new Word("Older Brother", "Egbon okunrin", R.drawable.family_older_brother));
+        families.add(new Word("Older Sister", "Egbon obinrin", R.drawable.family_older_sister));
+        families.add(new Word("Daughter", "Omọbinrin", R.drawable.family_daughter));
+        families.add(new Word("Son", "Omọkunrin", R.drawable.family_son));
+        families.add(new Word("Grandfather", "Baba agba", R.drawable.family_grandfather));
+        families.add(new Word("Grandmother", "Iya agba", R.drawable.family_grandmother));
+        families.add(new Word("Younger Brother", "Aburo okunrin", R.drawable.family_younger_brother));
+        families.add(new Word("Younger Sister", "Aburo obinrin", R.drawable.family_younger_sister));
 
 
-        FamilyAdapter familyAdapter = new FamilyAdapter(this, 0, families);
+        WordAdapter familyAdapter = new WordAdapter(this, 0, families, R.color.family_color);
         ListView listView = (ListView) findViewById(R.id.family);
         listView.setAdapter(familyAdapter);
     }
