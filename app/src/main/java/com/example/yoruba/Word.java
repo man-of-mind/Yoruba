@@ -5,14 +5,10 @@ public class Word {
     private String mYorubaTranslation;
     private int mImageResourceId = -1;
     private int mAudioResourceId;
-    public Word(String defaultTranslation, String yorubaTranslation){
+    public Word(String defaultTranslation, String yorubaTranslation, int audioResourceId){
         mDefaultTranslation = defaultTranslation;
         mYorubaTranslation = yorubaTranslation;
-    }
-    public Word(String defaultTranslation, String yorubaTranslation, int imageResourceId){
-        mDefaultTranslation = defaultTranslation;
-        mYorubaTranslation = yorubaTranslation;
-        mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
     public Word(String defaultTranslation, String yorubaTranslation, int imageResourceId, int audioResourceId){
         mDefaultTranslation = defaultTranslation;

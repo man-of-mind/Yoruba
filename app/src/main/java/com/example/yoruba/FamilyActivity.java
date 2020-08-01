@@ -2,34 +2,56 @@ package com.example.yoruba;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
 public class FamilyActivity extends AppCompatActivity {
+    MediaPlayer mMediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family);
 
-        ArrayList<Word> families = new ArrayList<Word>();
+        final ArrayList<Word> families = new ArrayList<Word>();
 
-        families.add(new Word("Mother", "Iya", R.drawable.family_mother));
-        families.add(new Word("Father", "Baba", R.drawable.family_father));
-        families.add(new Word("Older Brother", "Egbon okunrin", R.drawable.family_older_brother));
-        families.add(new Word("Older Sister", "Egbon obinrin", R.drawable.family_older_sister));
-        families.add(new Word("Daughter", "Omọbinrin", R.drawable.family_daughter));
-        families.add(new Word("Son", "Omọkunrin", R.drawable.family_son));
-        families.add(new Word("Grandfather", "Baba agba", R.drawable.family_grandfather));
-        families.add(new Word("Grandmother", "Iya agba", R.drawable.family_grandmother));
-        families.add(new Word("Younger Brother", "Aburo okunrin", R.drawable.family_younger_brother));
-        families.add(new Word("Younger Sister", "Aburo obinrin", R.drawable.family_younger_sister));
+        families.add(new Word("Mother", "Iya", R.drawable.family_mother,
+                R.raw.mother));
+        families.add(new Word("Father", "Baba", R.drawable.family_father,
+                R.raw.father));
+        families.add(new Word("Older Brother", "Egbon okunrin",
+                R.drawable.family_older_brother, R.raw.olderbrother));
+        families.add(new Word("Older Sister", "Egbon obinrin",
+                R.drawable.family_older_sister, R.raw.oldersister));
+        families.add(new Word("Daughter", "Omọbinrin",
+                R.drawable.family_daughter, R.raw.daughter));
+        families.add(new Word("Son", "Omọkunrin", R.drawable.family_son,
+                R.raw.son));
+        families.add(new Word("Grandfather", "Baba agba",
+                R.drawable.family_grandfather, R.raw.granddad));
+        families.add(new Word("Grandmother", "Iya agba",
+                R.drawable.family_grandmother, R.raw.grand));
+        families.add(new Word("Younger Brother", "Aburo okunrin",
+                R.drawable.family_younger_brother, R.raw.youngerbrother));
+        families.add(new Word("Younger Sister", "Aburo obinrin",
+                R.drawable.family_younger_sister, R.raw.youngersister));
 
 
         WordAdapter familyAdapter = new WordAdapter(this, 0, families, R.color.family_color);
         ListView listView = (ListView) findViewById(R.id.family);
         listView.setAdapter(familyAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                Word word = families.get(position);
+                mMediaPlayer = MediaPlayer.create(getApplicationContext(), word.getAudioResourceId());
+                mMediaPlayer.start();
+            }
+        });
     }
 }
