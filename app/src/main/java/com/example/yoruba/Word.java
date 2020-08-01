@@ -4,14 +4,21 @@ public class Word {
     private String mDefaultTranslation;
     private String mYorubaTranslation;
     private int mImageResourceId = -1;
+    private int mAudioResourceId;
     public Word(String defaultTranslation, String yorubaTranslation){
         mDefaultTranslation = defaultTranslation;
         mYorubaTranslation = yorubaTranslation;
     }
-    public Word(String defaultTranslation, String yorubaTranslation, int resourceId){
+    public Word(String defaultTranslation, String yorubaTranslation, int imageResourceId){
         mDefaultTranslation = defaultTranslation;
         mYorubaTranslation = yorubaTranslation;
-        mImageResourceId = resourceId;
+        mImageResourceId = imageResourceId;
+    }
+    public Word(String defaultTranslation, String yorubaTranslation, int imageResourceId, int audioResourceId){
+        mDefaultTranslation = defaultTranslation;
+        mYorubaTranslation = yorubaTranslation;
+        mImageResourceId = imageResourceId;
+        mAudioResourceId = audioResourceId;
     }
     public String getDefaultTranslation(){
         return mDefaultTranslation;
@@ -24,8 +31,21 @@ public class Word {
         return mImageResourceId;
     }
 
+    public int getAudioResourceId(){
+        return mAudioResourceId;
+    }
+
     public boolean hasImage(){
         return mImageResourceId != -1;
     }
 
+    @Override
+    public String toString() {
+        return "Word{" +
+                "mDefaultTranslation='" + mDefaultTranslation + '\'' +
+                ", mYorubaTranslation='" + mYorubaTranslation + '\'' +
+                ", mImageResourceId=" + mImageResourceId +
+                ", mAudioResourceId=" + mAudioResourceId +
+                '}';
+    }
 }
