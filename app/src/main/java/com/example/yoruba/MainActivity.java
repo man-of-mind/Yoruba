@@ -1,6 +1,7 @@
 package com.example.yoruba;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 
 import android.content.Intent;
@@ -50,8 +51,5 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        Navigation.findNavController(this, R.id.nav_host_fragment_container);
     }
-
 }
