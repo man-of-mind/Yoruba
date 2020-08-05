@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainActivity">
+
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="com.example.yoruba.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" >
+        <action
+            android:id="@+id/action_mainActivity_to_numbersActivity"
+            app:destination="@id/numbersActivity" />
+        <action
+            android:id="@+id/action_mainActivity_to_colorActivity"
+            app:destination="@id/colorActivity" />
+        <action
+            android:id="@+id/action_mainActivity_to_phrasesActivity"
+            app:destination="@id/phrasesActivity" />
+        <action
+            android:id="@+id/action_mainActivity_to_familyActivity"
+            app:destination="@id/familyActivity" />
+    </activity>
+
+    <activity
+        android:id="@+id/numbersActivity"
+        android:name="com.example.yoruba.NumbersActivity"
+        android:label="activity_numbers"
+        tools:layout="@layout/activity_numbers" />
+    <activity
+        android:id="@+id/familyActivity"
+        android:name="com.example.yoruba.FamilyActivity"
+        android:label="activity_family"
+        tools:layout="@layout/activity_family" />
+    <activity
+        android:id="@+id/colorActivity"
+        android:name="com.example.yoruba.ColorActivity"
+        android:label="activity_color"
+        tools:layout="@layout/activity_color" />
+    <activity
+        android:id="@+id/phrasesActivity"
+        android:name="com.example.yoruba.PhrasesActivity"
+        android:label="activity_phrases"
+        tools:layout="@layout/activity_phrases" />
+</navigation>
