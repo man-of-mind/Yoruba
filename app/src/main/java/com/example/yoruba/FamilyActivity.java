@@ -2,6 +2,8 @@ package com.example.yoruba;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
+import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -9,6 +11,7 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+
 
 public class FamilyActivity extends AppCompatActivity {
     MediaPlayer mMediaPlayer;
@@ -18,11 +21,29 @@ public class FamilyActivity extends AppCompatActivity {
             releaseMediaPlayer();
         }
     };
+    private AudioManager mAudioManager;
 
+    AudioManager.OnAudioFocusChangeListener changeListener = new AudioManager.OnAudioFocusChangeListener() {
+        @Override
+        public void onAudioFocusChange(int focusChange) {
+            if(focusChange == AudioManager.AUDIOFOCUS_LOSS_TRANSIENT || focusChange == AudioManager.
+            AUDIOFOCUS_LOSS_TRANSIENT_CAN_DUCK){
+                mMediaPlayer.pause();
+                mMediaPlayer.seekTo(0);
+            }
+            else if(focusChange == AudioManager.AUDIOFOCUS_GAIN){
+                mMediaPlayer.start();
+            }
+            else if(focusChange == AudioManager.AUDIOFOCUS_LOSS){
+                releaseMediaPlayer();
+            }
+        }
+    };
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_family);
+        mAudioManager = (AudioManager) getSystemService(Context.AUDIO_SERVICE);
 
         final ArrayList<Word> families = new ArrayList<Word>();
 
@@ -56,10 +77,15 @@ public class FamilyActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 Word word = families.get(position);
                 releaseMediaPlayer();
-                mMediaPlayer = MediaPlayer.create(getApplicationContext(), word.getAudioResourceId());
-                mMediaPlayer.start();
+                int result = mAudioManager.requestAudioFocus(changeListener, AudioManager.
+                        STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED){
+                    mMediaPlayer = MediaPlayer.create(getApplicationContext(), word.getAudioResourceId());
+                    mMediaPlayer.start();
 
-                mMediaPlayer.setOnCompletionListener(mCompleteMedia);
+                    mMediaPlayer.setOnCompletionListener(mCompleteMedia);
+                }
+
             }
         });
     }
@@ -75,6 +101,7 @@ public class FamilyActivity extends AppCompatActivity {
         if (mMediaPlayer != null){
             mMediaPlayer.release();
             mMediaPlayer = null;
+            mAudioManager.abandonAudioFocus(changeListener);
         }
     }
 }

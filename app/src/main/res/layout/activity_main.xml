@@ -8,56 +8,76 @@
     android:orientation="vertical"
     android:background="@color/app_background">
 
-    <TextView
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/numbers"
-        android:id="@+id/numbers"
-        android:textSize="20sp"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:paddingTop="25dp"
-        android:background="@color/number_color"
-        android:textColor="@android:color/white"
-        android:paddingBottom="25dp" />
+        android:background="@color/number_color">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/numbers"
+            android:id="@+id/numbers"
+            android:textSize="20sp"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="25dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:textColor="@android:color/white"
+            android:paddingBottom="25dp" />
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/family"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/family_color"
-        android:paddingStart="16dp"
-        android:paddingTop="25dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="25dp"
-        android:text="@string/family_members"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        android:background="@color/family_color">
+        <TextView
+            android:id="@+id/family"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:paddingStart="16dp"
+            android:paddingTop="25dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="25dp"
+            android:text="@string/family_members"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/colors"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_color"
-        android:paddingStart="16dp"
-        android:paddingTop="25dp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="25dp"
-        android:text="@string/colors"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        android:background="@color/color_color">
+        <TextView
+            android:id="@+id/colors"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:paddingStart="16dp"
+            android:paddingTop="25dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="25dp"
+            android:text="@string/colors"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/phrases"
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/phrases_color"
-        android:paddingStart="16dp"
-        android:paddingTop="25sp"
-        android:paddingEnd="16dp"
-        android:paddingBottom="25sp"
-        android:text="@string/phrases"
-        android:textColor="@android:color/white"
-        android:textSize="20sp" />
+        android:background="@color/phrases_color">
+        <TextView
+            android:id="@+id/phrases"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?android:attr/selectableItemBackground"
+            android:paddingStart="16dp"
+            android:paddingTop="25sp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="25sp"
+            android:text="@string/phrases"
+            android:textColor="@android:color/white"
+            android:textSize="20sp" />
+    </FrameLayout>
 
 </androidx.appcompat.widget.LinearLayoutCompat>
