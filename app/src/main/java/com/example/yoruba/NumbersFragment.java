@@ -7,6 +7,7 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,7 +102,7 @@ public class NumbersFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.list_item, container, false);
+        View rootView =  inflater.inflate(R.layout.activity_numbers, container, false);
 
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
@@ -132,22 +133,23 @@ public class NumbersFragment extends Fragment {
 
         WordAdapter wordAdapter = new WordAdapter(getActivity(), 0, numbers, R.color.number_color);
         ListView listView = (ListView) rootView.findViewById(R.id.list);
+
         listView.setAdapter(wordAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Word word = numbers.get(position);
-                releaseMediaPlayer();
-                int result = mAudioManager.requestAudioFocus(changeListener, AudioManager.
-                        STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
-                if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED){
-                    mMediaPlayer = MediaPlayer.create(getActivity(), word.getAudioResourceId());
-                    mMediaPlayer.start();
+                @Override
+                public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                    Word word = numbers.get(position);
+                    releaseMediaPlayer();
+                    int result = mAudioManager.requestAudioFocus(changeListener, AudioManager.
+                            STREAM_MUSIC, AudioManager.AUDIOFOCUS_GAIN_TRANSIENT);
+                    if (result == AudioManager.AUDIOFOCUS_REQUEST_GRANTED) {
+                        mMediaPlayer = MediaPlayer.create(getActivity(), word.getAudioResourceId());
+                        mMediaPlayer.start();
 
-                    mMediaPlayer.setOnCompletionListener(mCompleteMedia);
+                        mMediaPlayer.setOnCompletionListener(mCompleteMedia);
+                    }
                 }
-            }
-        });
+            });
         return  rootView;
     }
 

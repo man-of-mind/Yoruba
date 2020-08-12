@@ -100,7 +100,7 @@ public class FamilyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View rootView =  inflater.inflate(R.layout.list_item, container, false);
+        View rootView =  inflater.inflate(R.layout.activity_numbers, container, false);
 
         mAudioManager = (AudioManager) getActivity().getSystemService(Context.AUDIO_SERVICE);
 
