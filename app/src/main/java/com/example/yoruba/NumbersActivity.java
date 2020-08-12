@@ -24,11 +24,4 @@ public class NumbersActivity extends AppCompatActivity {
                 commit();
 
     }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-
 }
