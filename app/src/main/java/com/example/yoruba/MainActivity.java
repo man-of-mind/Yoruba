@@ -1,13 +1,9 @@
 package com.example.yoruba;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-
-import android.content.Intent;
+import androidx.viewpager.widget.ViewPager;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
+import com.google.android.material.tabs.TabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -16,40 +12,11 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        TextView numbers = (TextView) findViewById(R.id.numbers);
-        numbers.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NumbersActivity.class);
-                startActivity(intent);
-            }
-        });
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
+        SimpleFragmentPagerAdapter adapter = new SimpleFragmentPagerAdapter(getSupportFragmentManager(), this);
+        viewPager.setAdapter(adapter);
 
-        TextView color = (TextView) findViewById(R.id.colors);
-        color.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, ColorActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        TextView family = (TextView) findViewById(R.id.family);
-        family.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, FamilyActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        TextView phrases = (TextView) findViewById(R.id.phrases);
-        phrases.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), PhrasesActivity.class);
-                startActivity(intent);
-            }
-        });
+        TabLayout tab = (TabLayout) findViewById(R.id.tab_layout);
+        tab.setupWithViewPager(viewPager);
     }
 }

@@ -1,9 +1,10 @@
 <resources>
     <string name="app_name">Yoruba</string>
     <string name="numbers">Numbers</string>
-    <string name="family_members">Family Members</string>
+    <string name="family_members">Family</string>
     <string name="colors">Colors</string>
     <string name="phrases">Phrases</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="english">english</string>
 </resources>

@@ -41,7 +41,7 @@
             android:paddingLeft="16dp"
             android:textColor="@android:color/white"
             android:textAppearance="?android:textAppearanceMedium"
-            android:text="english" />
+            android:text="@string/english" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="88dp"

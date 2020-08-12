@@ -8,76 +8,20 @@
     android:orientation="vertical"
     android:background="@color/app_background">
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/number_color">
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/numbers"
-            android:id="@+id/numbers"
-            android:textSize="20sp"
-            android:paddingStart="16dp"
-            android:paddingEnd="16dp"
-            android:paddingTop="25dp"
-            android:background="?android:attr/selectableItemBackground"
-            android:textColor="@android:color/white"
-            android:paddingBottom="25dp" />
-    </FrameLayout>
 
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/family_color">
-        <TextView
-            android:id="@+id/family"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:paddingStart="16dp"
-            android:paddingTop="25dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="25dp"
-            android:text="@string/family_members"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-    </FrameLayout>
 
-    <FrameLayout
+    <com.google.android.material.tabs.TabLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/color_color">
-        <TextView
-            android:id="@+id/colors"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:paddingStart="16dp"
-            android:paddingTop="25dp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="25dp"
-            android:text="@string/colors"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-    </FrameLayout>
+        app:tabMode="fixed"
+        android:id="@+id/tab_layout"
+        app:tabGravity="fill"
+        app:tabMaxWidth="0dp"
+        style="@style/CategoryTab"/>
 
-    <FrameLayout
+    <androidx.viewpager.widget.ViewPager
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/phrases_color">
-        <TextView
-            android:id="@+id/phrases"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?android:attr/selectableItemBackground"
-            android:paddingStart="16dp"
-            android:paddingTop="25sp"
-            android:paddingEnd="16dp"
-            android:paddingBottom="25sp"
-            android:text="@string/phrases"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
-    </FrameLayout>
+        android:layout_height="match_parent"
+        android:id="@+id/viewpager" />
 
 </androidx.appcompat.widget.LinearLayoutCompat>
