@@ -1,6 +1,5 @@
 package com.example.yoruba;
 
-import android.content.ContentValues;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
